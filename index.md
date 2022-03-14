@@ -1,37 +1,196 @@
-## Welcome to GitHub Pages
+# PortScanner
 
-You can use the [editor on GitHub](https://github.com/MSFPT/PortScanner/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
+[![Python](https://img.shields.io/badge/python-3.8-blue)](https://python.org)
+![Level](https://img.shields.io/badge/Level-Easy-cyan)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Scan All Open Ports Of The Target IP.
 
-### Markdown
+A tool which is capable of scanning ports as `TCP` & `UDP` and detecting open and closed ones.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+## Clone from GitHub
+```bash
+git clone https://github.com/MSFPT/PortScanner
 ```
 
-For more details see [Basic writing and formatting syntax](https://docs.github.com/en/github/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax).
+## Example
 
-### Jekyll Themes
+<br>
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/MSFPT/PortScanner/settings/pages). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+|   argument    |      data       | utilization |
+| ------------- | --------------- | ----------- |
+| `--hostname` or `-h`  | hostname or ip | required |
+| `--port` or `-p` | port | optional |
+| `--minimum-port` or `-min-port` | minimum port | optional |
+| `--maximum-port` or `-max-port` | maximum port | optional |
+| `--protocol` | `TCP` / `UDP` | optional |
+| `--filter` or `-f` | `all` / `open` / `closed` | optional |
 
-### Support or Contact
+<br>
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://support.github.com/contact) and we’ll help you sort it out.
+### Types Run
+
+<br>
+
+```
+python3 PortScanner --hostname github.com
+```
+
+```
+python3 PortScanner -h github.com
+```
+**Usage:** Python3 PortScanner [hostname]
+
+**Scan:** Port from 1 to 65535
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --port 443
+```
+
+```
+python3 PortScanner -h github.com -p 443
+```
+
+**Usage:** Python3 PortScanner [hostname] [port]
+
+**Scan:** Port 443
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --maximum-port 510
+```
+
+```
+python3 PortScanner -h github.com -max-port 510
+```
+
+**Usage:** Python3 PortScanner [hostname] [max-port]
+
+**Scan:** Port from 1 to 510
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --minimum-port 80
+```
+
+```
+python3 PortScanner -h github.com -min-port 80
+```
+
+**Usage:** Python3 PortScanner [hostname] [min-port]
+
+**Scan:** Port from 80 to 65535
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --minimum-port 80 --maximum-port 510
+```
+
+```
+python3 PortScanner -h github.com -min-port 80 -max-port 510
+```
+
+**Usage:** Python3 PortScanner [hostname] [min-port] [max-port]
+
+**Scan:** Port from 80 to 510
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --port 6060 --protocol UDP
+```
+
+```
+python3 PortScanner -h github.com -p 6060 --protocol UDP
+```
+
+**Usage:** Python3 PortScanner [hostname] [protocol]
+
+**Scan:** Port 6060
+
+**Protocol:** `UDP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --filter all
+```
+
+```
+python3 PortScanner -h github.com -f all
+```
+
+**Usage:** Python3 PortScanner [hostname] [filter]
+
+**Scan:** All Ports
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --filter open
+```
+
+```
+python3 PortScanner -h github.com -f open
+```
+
+**Usage:** Python3 PortScanner [hostname] [filter]
+
+**Scan:** All Ports open
+
+**Protocol:** `TCP`
+
+<br>
+
+```
+python3 PortScanner --hostname github.com --filter closed
+```
+
+```
+python3 PortScanner -h github.com -f closed
+```
+
+**Usage:** Python3 PortScanner [hostname] [filter]
+
+**Scan:** All Ports closed
+
+**Protocol:** `TCP`
+
+<br><br>
+
+### help
+```
+python3 PortScanner --help
+```
+
+```
+python3 PortScanner -H
+```
+
+<br>
+
+### developer
+```
+python3 PortScanner --developer
+```
+
+```
+python3 PortScanner -D
+```
